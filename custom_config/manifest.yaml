@@ -1,0 +1,16 @@
+region: 'us-west-2'
+version: 2021-03-15
+
+resources: 
+  - 
+    name: 'CustomGuardrail-S3MFADelete'
+    description: |
+      Prevent S3 DeleteObject for all principles except IAM role used for DataSync agent. 
+    deploy_method: scp
+    resource_file: policies/custom-guardrail-s3mfa-delete.json
+    deployment_targets:
+      #accounts:
+      #  - 999999999999
+      organizational_units:
+        - 'Test accounts'
+    
